@@ -38,53 +38,31 @@ This repository stores original codes used in ***Coordination of transcription-c
 
 ## Workflow Example
 
-### 1. Quality Check, Alignment and meta-gene analysis
-You can download the raw sequencing data from [NCBI Sequence Read Archive](https://www.ncbi.nlm.nih.gov/sra/) under PRJNA1074553 to `projects/project1/fastq/`.
-Here we use the data example file `projects/project1/fastq/Sample_DataExample` to demonstrate the workflow.
+### 1. Analysis of PADD-seq
 
-run `projects/project1/fastq/Check.sh` and get `projects/project1/fastq/check.log` to verify the integrity of downloaded files.
+You can download the raw sequencing data from [NCBI Sequence Read Archive](https://www.ncbi.nlm.nih.gov/sra/) under PRJNA1074553 to `PADD-seq/projects/project1/fastq/`.
+Here we use the data example file `PADD-seq/projects/project1/fastq/Sample_DataExample` to demonstrate the workflow.
 
-Download the reference genome and build a reference genome index for the alignment program (bwa). Edit the `projects/project1/conf/config`, and replace the path of the variables (`hg38_FA`, `hg38_INDEX_PATH`, etc.) with your own path. 
+run `PADD-seq/projects/project1/fastq/Check.sh` and get `PADD-seq/projects/project1/fastq/check.log` to verify the integrity of downloaded files.
 
-We provide an example file including reference-point sites, `annotation/BJ_hg38_FPKM-gt1_GeneDistance-gt2k_GeneLength-gt50k.TSSdat.txt`, which is used to perform meta-gene analysis. You can make your own files following the data structure and replace it. The data structure of the file is shown below:
+Download the reference genome and build a reference genome index for the alignment program (bwa). Edit the `PADD-seq/projects/project1/conf/config`, and replace the path of the variables (`hg38_FA`, `hg38_INDEX_PATH`, etc.) with your own path. 
+
+We provide an example file including reference-point sites, `PADD-seq/annotation/BJ_hg38_FPKM-gt1_GeneDistance-gt2k_GeneLength-gt50k.TSSdat.txt`, which is used to perform meta-gene analysis. You can make your own files following the data structure and replace it. The data structure of the file is shown below:
 | Gene ID | Chromasome | Reference-point site | Strand | Notes (optional) |
 | :---: | :---: | :---: | :---: | :---: |
 | ENSG00000173193 | chr3 | 122680839 | + | 50001 |
 | ENSG00000112335 | chr6 | 108261246 | - | 50024 |
 | ... | ... | ... | ... | ... |
 
-Then replace the `UPSTREAM` and `DOWNSTREAM` variables in `projects/project1/conf/config` with distance (bp) upstream and downstream of the reference-point (such as TSS or TES) selected for meta-gene analysis, and replace the `REGION` variable with the length (bp) between `UPSTREAM` and `DOWNSTREAM`.
+Then replace the `UPSTREAM` and `DOWNSTREAM` variables in `PADD-seq/projects/project1/conf/config` with distance (bp) upstream and downstream of the reference-point (such as TSS or TES) selected for meta-gene analysis, and replace the `REGION` variable with the length (bp) between `UPSTREAM` and `DOWNSTREAM`.
 
-Run `projects/project1/start.sh`, and it will automatically perform adaptor cutting, Alignment, meta-gene analysis, nucleotide analysis, etc. 
+Run `PADD-seq/projects/project1/start.sh`, and it will automatically perform adaptor cutting, Alignment, meta-gene analysis, nucleotide analysis, etc. 
 
-After completion, you will get `projects/project1/DataExample.TSS(TES).rawValue` files of meta gene analysis which can be used to plot meta-gene profile with `projects/project1/plotProfileOfMeta-gene.R` in R, files in `projects/project1/BaseCount/` of the nucleotide analysis, files with the .bw suffix which can be used to plot screenshots in IGV, and quantified files `projects/project1/DataExample.GeneByGeneRPKM.TS(NTS).txt` which can be used to plot violin plots.
+After completion, you will get `PADD-seq/projects/project1/DataExample.TSS(TES).rawValue` files of meta gene analysis which can be used to plot meta-gene profile with `PADD-seq/projects/project1/plotProfileOfMeta-gene.R` in R, files in `PADD-seq/projects/project1/BaseCount/` of the nucleotide analysis, files with the .bw suffix which can be used to plot screenshots in IGV, and quantified files `PADD-seq/projects/project1/DataExample.GeneByGeneRPKM.TS(NTS).txt` which can be used to plot violin plots.
 
-### 2. Plot strand-specific heatmap and screenshot
+### 2. Analysis of Damage-seq
 
-
-### 3. Analysis of sample correlations
-Run `projects/plotCorrelationForGenes.sh` to get the analysis result of sample correlations among active genes, `projects/correlationScatter.pdf`:
-```
-bash plotCorrelationForGenes.sh DataExample1.bed DataExample2.bed
-```
-
-Or run `projects/bed2bam.sh` and `projects/plotCorrelationForBins.sh` to get the analysis result of sample correlations for the entire genome, `correlationHeatmapPerBin.pdf`:
-```
-bash bed2bam.sh DataExample3.bed
-bash bed2bam.sh DataExample4.bed
-bash bed2bam.sh DataExample5.bed
-bash bed2bam.sh DataExample6.bed
-
-bash plotCorrelationForBins.sh DataExample3.bed DataExample4.bed DataExample5.bed DataExample6.bed
-```
-
-### 4. Peak calling
-Run `generate_bed.py` to get files in bed format for peak calling and perform peak calling using MACS2 with no model, 0 bp shift, and 0 bp extension option :
-```
-macs2 callpeak -t ChIP1.bed -c Input1.bed -g hs -p 0.01 -n ChIP1 --nomodel -f BED -B --SPMR
-```
----
-
+refer to the "Analysis of PADD-seq".
 
 ## Authors
-Codes were generated by Maoxiang Qian, Jiayong Yin and Yongchang Zhu, Institutes of Biomedical Sciences, Fudan University, Shanghai 200032, China. Contact information: yongchangzhu21@m.fudan.edu.cn
+Codes were uploaded by Yongchang Zhu, Institutes of Biomedical Sciences, Fudan University, Shanghai 200032, China. Contact information: yongchangzhu21@m.fudan.edu.cn
