@@ -53,23 +53,14 @@ We provide an example file including reference-point sites, `annotation/BJ_hg38_
 | ENSG00000112335 | chr6 | 108261246 | - | 50024 |
 | ... | ... | ... | ... | ... |
 
-Then replace the `UPSTREAM` and `DOWNSTREAM` variables in `projects/conf/config` with distance (bp) upstream and downstream of the reference-point (such as TSS or TES) selected for meta-gene analysis, and replace the `REGION` variable with the length (bp) between `UPSTREAM` and `DOWNSTREAM`.
+Then replace the `UPSTREAM` and `DOWNSTREAM` variables in `projects/project1/conf/config` with distance (bp) upstream and downstream of the reference-point (such as TSS or TES) selected for meta-gene analysis, and replace the `REGION` variable with the length (bp) between `UPSTREAM` and `DOWNSTREAM`.
 
-Run `projects/start.sh`, and it will automatically perform adaptor cutting, Alignment, meta-gene analysis and nucleotide analysis. 
+Run `projects/project1/start.sh`, and it will automatically perform adaptor cutting, Alignment, meta-gene analysis, nucleotide analysis, etc. 
 
-After completion, you will get `projects/DataExample.rawValue` file of meta gene analysis which can be used to plot meta-gene profile with `projects/plotProfileOfMeta-gene.R` in R, and files in `projects/BaseCount/` of the nucleotide analysis.
+After completion, you will get `projects/project1/DataExample.TSS(TES).rawValue` files of meta gene analysis which can be used to plot meta-gene profile with `projects/project1/plotProfileOfMeta-gene.R` in R, files in `projects/project1/BaseCount/` of the nucleotide analysis, files with the .bw suffix which can be used to plot screenshots in IGV, and quantified files `projects/project1/DataExample.GeneByGeneRPKM.TS(NTS).txt` which can be used to plot violin plots.
 
 ### 2. Plot strand-specific heatmap and screenshot
-Run `projects/generateStrandSpecificBW.sh` to get the strand-specific bw files:
-```
-bash generateStrandSpecificBW.sh DataExample.bed
-```
-After that, you will get the files of `.forward.bw` and `.reverse.bw`, which can be used to plot screenshot in IGV.
 
-Run `projects/plotHeatmap.sh` to get the heatmap of template strand signal, `projects/DataExample.bed.TS.pdf`, and non-template strand signal, `projects/DataExample.bed.NTS.pdf`:
-```
-bash plotHeatmap.sh DataExample.bed
-```
 
 ### 3. Analysis of sample correlations
 Run `projects/plotCorrelationForGenes.sh` to get the analysis result of sample correlations among active genes, `projects/correlationScatter.pdf`:
