@@ -46,6 +46,8 @@ run `projects/project1/fastq/Check.sh` and get `projects/project1/fastq/check.lo
 
 Download the reference genome and build a reference genome index for the alignment program (bwa). Edit the `projects/project1/conf/config`, and replace the `hg38_FA`, `hg38_INDEX_PATH` variables with the path of your reference genome and reference genome index, respectively. 
 
+
+
 We provide an example file including reference-point sites, `projects/conf/config/Reference-point_site_Example.txt`, which is used to perform meta-gene analysis. You can make your own files following the data structure and replace it. The data structure of the file is shown below:
 | Gene ID | Chromasome | Reference-point site | Strand | Notes (optional) |
 | :---: | :---: | :---: | :---: | :---: |
