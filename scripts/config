@@ -1,0 +1,14 @@
+# Path
+hg38_FA="/home/public/Genomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa"
+MM10_FA="/cluster/Public/PublicDB/lib/mm10/Sequence/WholeGenomeFasta/genome.fa"
+hg38_INDEX_PATH="/home/public/Genomes/Homo_sapiens/UCSC/hg38/Sequence/BWAIndex/version0.6.0/genome.fa"
+MM10_INDEX_PATH="/cluster/home/yczhu/Genome/bwa_index/mm10/mm10"
+TSSDAT="conf/BJ_FPKM-gt1_nonoverlapping_length-gt50k_hg38.TSSdat.txt"
+SCRIPTS="~/chipdamageseq/scripts"
+
+# Vars
+ADAPT1="GACTGGTTCCAATTGAAAGTGCTCTTCCGATCT"
+UPSTREAM=10000
+DOWNSTREAM=40000
+REGION=50000
+BINSIZE=200
