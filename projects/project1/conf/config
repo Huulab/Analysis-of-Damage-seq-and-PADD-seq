@@ -1,27 +1,25 @@
 # Path
 hg38_FA="/home/public/Genomes/Homo_sapiens/UCSC/hg38/Sequence/WholeGenomeFasta/genome.fa"
-#MM10_FA="/cluster/Public/PublicDB/lib/mm10/Sequence/WholeGenomeFasta/genome.fa"
 hg38_INDEX_PATH="/home/public/Genomes/Homo_sapiens/UCSC/hg38/Sequence/BWAIndex/version0.6.0/genome.fa"
-#MM10_INDEX_PATH="/cluster/home/yczhu/Genome/bwa_index/mm10/mm10"
 
-SCRIPTS="~/PADD-seq/scripts"
-BEDF="~/PADD-seq/annotation/BJ_hg38_FPKM-gt1_sorted_BEDmerged.distance-gt2k_Rmerged_forward-strand-gene.bed"
-BEDR="~/PADD-seq/annotation/BJ_hg38_FPKM-gt1_sorted_BEDmerged.distance-gt2k_Rmerged_reverse-strand-gene.bed"
-BED10F="~/PADD-seq/annotation/BJ_hg38_FPKM-gt1_sorted_BEDmerged.distance-gt2k_Rmerged_LengthGt20k_TSSdownstream10k-TES_forward-strand-gene.bed"
-BED10R="~/PADD-seq/annotation/BJ_hg38_FPKM-gt1_sorted_BEDmerged.distance-gt2k_Rmerged_LengthGt20k_TSSdownstream10k-TES_reverse-strand-gene.bed"
-bedToBam_G="~/PADD-seq/annotation/hg38.genome"
-bdgToBW_chromSizes="~/PADD-seq/annotation/hg38.chrom.sizes"
+SCRIPTS="~/scripts"
+BEDF="~/annotation/BJ_hg38_FPKM-gt1_sorted_BEDmerged.distance-gt2k_Rmerged_forward-strand-gene.bed"
+BEDR="~/annotation/BJ_hg38_FPKM-gt1_sorted_BEDmerged.distance-gt2k_Rmerged_reverse-strand-gene.bed"
+BED10F="~/annotation/BJ_hg38_FPKM-gt1_sorted_BEDmerged.distance-gt2k_Rmerged_LengthGt20k_TSSdownstream10k-TES_forward-strand-gene.bed"
+BED10R="~/annotation/BJ_hg38_FPKM-gt1_sorted_BEDmerged.distance-gt2k_Rmerged_LengthGt20k_TSSdownstream10k-TES_reverse-strand-gene.bed"
+bedToBam_G="~/annotation/hg38.genome"
+bdgToBW_chromSizes="~/annotation/hg38.chrom.sizes"
 
 # Vars
 ADAPT1="GACTGGTTCCAATTGAAAGTGCTCTTCCGATCT"
 #TSS
-TSSDAT="~/PADD-seq/annotation/BJ_hg38_FPKM-gt1_GeneDistance-gt2k_GeneLength-gt50k.TSSdat.txt"
+TSSDAT="~/annotation/BJ_hg38_FPKM-gt1_GeneDistance-gt2k_GeneLength-gt50k.TSSdat.txt"
 UPSTREAM_TSS=10000
 DOWNSTREAM_TSS=40000
 REGION_TSS=50000
 BINSIZE_TSS=200
 #TES
-TESDAT="~/PADD-seq/annotation/BJ_hg38_FPKM-gt1_GeneDistance-gt2k_GeneLength-gt50k.TESdat.txt"
+TESDAT="~/annotation/BJ_hg38_FPKM-gt1_GeneDistance-gt2k_GeneLength-gt50k.TESdat.txt"
 UPSTREAM_TES=25000
 DOWNSTREAM_TES=25000
 REGION_TES=50000
